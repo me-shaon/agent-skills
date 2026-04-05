@@ -1,6 +1,6 @@
 # Agent Skills
 
-![Release](https://img.shields.io/github/v/release/me-shaon/agent-skills?style=flat-square) ![Stars](https://img.shields.io/github/stars/me-shaon/agent-skills?style=flat-square) ![License](https://img.shields.io/github/license/me-shaon/agent-skills?style=flat-square)
+[![CI](https://github.com/me-shaon/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/me-shaon/agent-skills/actions/workflows/ci.yml) ![Release](https://img.shields.io/github/v/release/me-shaon/agent-skills?style=flat-square) ![Stars](https://img.shields.io/github/stars/me-shaon/agent-skills?style=flat-square) ![License](https://img.shields.io/github/license/me-shaon/agent-skills?style=flat-square)
 
 Laravel-focused agent skills for code review, upgrades, API hardening, deployment checks, and resilience reviews.
 
