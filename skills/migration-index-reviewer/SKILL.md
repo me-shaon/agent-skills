@@ -34,6 +34,8 @@ Use this skill when reviewing Laravel migrations, schema changes, or slow-query 
 6. Return concrete migration changes, using `Schema::table()` or `$table->index([...])` examples when helpful. End with these sections: `Missing indexes`, `Redundant or weak indexes`, `Rollout risks`, and `Recommended migration changes`.
 7. Keep the answer focused on actionable index decisions. Do not speculate about indexes that are not supported by observed query patterns.
 
+Output expectations: return a short review of missing or weak indexes, rollout risks, and concrete migration edits tied to observed Laravel query paths.
+
 ## Examples
 
 Prompt 1:
@@ -62,6 +64,17 @@ JSON:
     "focus": ["foreign_keys", "compound_indexes", "rollout_risks"]
   }
 }
+```
+
+Code example:
+
+```php
+Schema::table('orders', function (Blueprint $table) {
+    $table->index(
+        ['account_id', 'status', 'created_at'],
+        'orders_account_status_created_at_idx'
+    );
+});
 ```
 
 ## Smoke test

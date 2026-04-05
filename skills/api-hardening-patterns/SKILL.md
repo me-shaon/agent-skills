@@ -34,6 +34,8 @@ Use this skill when building or reviewing Laravel APIs that need stronger securi
 6. Return findings under `Critical issues`, `Hardening improvements`, and `Tests to add`. Point each recommendation to the Laravel file or layer where the fix belongs, and prefer concrete changes such as `FormRequest`, policy, middleware, resource, cast, or hidden-attribute updates.
 7. Keep the answer practical and prioritized. Do not give generic API security advice that is not tied to the actual Laravel implementation.
 
+Output expectations: return prioritized Laravel-specific issues first, then concrete fixes and tests to add, not a generic API security checklist.
+
 ## Examples
 
 Prompt 1:
@@ -60,6 +62,17 @@ JSON:
     "files": ["routes/api.php", "app/Http/Controllers/Api", "app/Http/Requests"],
     "concerns": ["resource_exposure", "pagination_limits", "token_abilities"]
   }
+}
+```
+
+Code example:
+
+```php
+public function store(StorePostRequest $request): PostResource
+{
+    $this->authorize('create', Post::class);
+
+    return new PostResource(Post::create($request->validated()));
 }
 ```
 

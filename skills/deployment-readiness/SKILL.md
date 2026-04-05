@@ -34,6 +34,8 @@ Use this skill before a release or during a production readiness review when you
 6. Return findings under `Blockers`, `Warnings`, `Pre-deploy checks`, and `Recommended follow-ups`. Each point should reference the relevant Laravel file, config key, Artisan command, or infrastructure file.
 7. End with a clear verdict: `Ready`, `Ready with conditions`, or `Not ready`. Keep the answer focused on release-critical issues rather than a generic operations checklist.
 
+Output expectations: return a short release-readiness report with blockers first, then warnings, pre-deploy checks, recommended follow-ups, and a final verdict.
+
 ## Examples
 
 Prompt 1:

@@ -34,6 +34,8 @@ Use this skill for Laravel jobs, integrations, webhooks, scheduled tasks, listen
 6. Return findings under `High-risk failure modes`, `Code changes`, and `Operational safeguards`. Prefer concrete Laravel fixes such as queue settings, locks, unique jobs, timeout changes, retry tuning, `ThrottlesExceptions`, or graceful fallback responses.
 7. Keep the answer practical and prioritized. Focus on the smallest changes that reduce operational risk fastest.
 
+Output expectations: return the highest-risk failure modes first, then concrete Laravel code and operational fixes, with the smallest high-impact next steps called out clearly.
+
 ## Examples
 
 Prompt 1:
@@ -60,6 +62,17 @@ JSON:
     "files": ["app/Jobs", "app/Listeners", "config/queue.php"],
     "concerns": ["duplicate_delivery", "retry_storms", "timeout_alignment"]
   }
+}
+```
+
+Code example:
+
+```php
+final class SyncInvoiceJob implements ShouldQueue
+{
+    public int $tries = 5;
+    public int $timeout = 30;
+    public array $backoff = [60, 300, 900];
 }
 ```
 

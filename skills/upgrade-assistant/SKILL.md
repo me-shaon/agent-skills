@@ -34,6 +34,8 @@ Use this skill when preparing or executing a Laravel framework, first-party pack
 6. End with a phased plan using these sections: `Preparation`, `Dependency updates`, `Application changes`, `Test pass`, and `Deployment checks`. Include concrete commands, targeted PHPUnit or Pest suites, and smoke-test routes when relevant.
 7. Keep the answer concise and practical. Do not dump a generic framework changelog; focus on the changes that matter for the actual app and dependency set.
 
+Output expectations: return dependency blockers first, then a phased upgrade plan with concrete commands, test checkpoints, and deployment checks.
+
 ## Examples
 
 Prompt 1:
