@@ -10,6 +10,7 @@ SKILLS=(
   "upgrade-assistant"
   "resilient-check"
   "frontend-performance-review"
+  "data-migration-strategy"
 )
 
 echo "Install commands:"

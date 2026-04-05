@@ -28,5 +28,10 @@
     "slug": "frontend-performance-review",
     "name": "Frontend Performance Review",
     "path": "skills/frontend-performance-review/SKILL.md"
+  },
+  {
+    "slug": "data-migration-strategy",
+    "name": "Data Migration Strategy",
+    "path": "skills/data-migration-strategy/SKILL.md"
   }
 ]

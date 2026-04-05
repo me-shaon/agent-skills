@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/me-shaon/agent-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/me-shaon/agent-skills/actions/workflows/ci.yml) ![Release](https://img.shields.io/github/v/release/me-shaon/agent-skills?style=flat-square) ![Stars](https://img.shields.io/github/stars/me-shaon/agent-skills?style=flat-square) ![License](https://img.shields.io/github/license/me-shaon/agent-skills?style=flat-square)
 
-Laravel-focused agent skills for code review, upgrades, API hardening, deployment checks, frontend performance reviews, and resilience reviews.
+Laravel-focused agent skills for code review, upgrades, API hardening, deployment checks, frontend performance reviews, data migration planning, and resilience reviews.
 
 This repository is organized as a multi-skill collection that can be consumed by Agent Skills-compatible clients and Laravel Boost.
 
@@ -31,6 +31,10 @@ Reviews Laravel jobs, webhooks, integrations, and user flows for retries, timeou
 ### `frontend-performance-review`
 
 Reviews Laravel frontend performance, responsiveness, asset loading, and Lighthouse-impacting implementation choices across Blade, Livewire, Inertia, and Vite-based apps.
+
+### `data-migration-strategy`
+
+Helps plan safe Laravel data migrations with phased rollout, double writes, queued backfills, verification, rollback, and cleanup of stale code paths.
 
 ## Installation
 
@@ -67,6 +71,8 @@ php artisan boost:add-skill me-shaon/agent-skills --skill deployment-readiness
 ```text
 skills/
   api-hardening-patterns/
+    SKILL.md
+  data-migration-strategy/
     SKILL.md
   deployment-readiness/
     SKILL.md
