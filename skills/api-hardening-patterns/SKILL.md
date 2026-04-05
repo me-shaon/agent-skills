@@ -1,11 +1,11 @@
 ---
 name: api-hardening-patterns
-description: Audit and improve Laravel API endpoints for validation, authorization, rate limiting, error handling, and abuse resistance.
+description: Review Laravel API endpoints for validation, authorization, abuse resistance, and safer defaults.
 license: MIT
 tags:
   - laravel
   - php
-version: 0.1.0
+version: 0.1.1
 compatible_agents:
   - laravel/boost
 ---
@@ -14,7 +14,7 @@ compatible_agents:
 
 ## When to use
 
-Use this skill when building or reviewing Laravel APIs that need stronger security, safer defaults, more predictable errors, and better protection against abuse or accidental misuse. Prefer it for public APIs, partner integrations, mobile backends, webhook endpoints, or any route group under `routes/api.php`.
+Use this skill when building or reviewing Laravel APIs that need stronger security, safer defaults, and better abuse resistance. It is most useful for public APIs, partner integrations, mobile backends, webhook endpoints, or any route group under `routes/api.php`.
 
 ## Input parameters
 
@@ -26,26 +26,26 @@ Use this skill when building or reviewing Laravel APIs that need stronger securi
 
 ## Procedure
 
-1. Inventory the API surface from `routes/api.php`, route groups, middleware, controllers, form requests, resources, policies, guards, and exception handling. Note which endpoints are public, authenticated, tenant-scoped, admin-only, or webhook-driven.
-2. Inspect validation and authorization in Laravel-native locations first. Prefer `FormRequest` classes, policy methods, gates, route model binding constraints, signed routes, and explicit authorization checks over ad-hoc controller logic.
-3. Review common Laravel API risks: inline validation, mass-assignment exposure on models, missing `$fillable` or unsafe `$guarded`, broad eager-loaded relationships in API resources, user-controlled filters/sorts, weak pagination defaults, unconstrained uploads, and inconsistent exception rendering.
-4. Check abuse controls and platform protections. Review throttling middleware, login/token issuance flows, webhook signature verification, pagination caps, file upload validation, rate-limited jobs, and whether sensitive fields leak through serialization or `toArray()`.
-5. Recommend concrete Laravel changes using middleware aliases, named rate limiters, `FormRequest` classes, API resources, policies, casts, hidden attributes, and explicit DTO/resource boundaries where needed.
-6. If the API uses Sanctum or Passport, verify token ability checks, stateful vs stateless assumptions, CSRF/session crossover risks, and revocation/rotation handling. If it is a webhook endpoint, explicitly cover signature verification, replay protection, and idempotency.
-7. Return a prioritized response with `Critical issues`, `Hardening improvements`, and `Tests to add`. Each recommendation should point to the Laravel file or layer where the fix belongs.
+1. Inspect the API surface from `routes/api.php`, route groups, middleware, controllers, form requests, resources, policies, guards, and exception handling. Note which endpoints are public, authenticated, tenant-scoped, admin-only, or webhook-driven.
+2. Check validation and authorization in Laravel-native locations first. Prefer `FormRequest` classes, policy methods, gates, route model binding constraints, signed routes, and explicit authorization checks over ad-hoc controller logic.
+3. Focus on common Laravel API risks: inline validation, mass-assignment exposure, unsafe `$fillable` or `$guarded`, over-broad API resources, user-controlled filters and sorts, weak pagination defaults, unconstrained uploads, and inconsistent exception rendering.
+4. Review abuse controls and data exposure. Check throttling, token issuance, pagination caps, webhook signature verification, replay protection, rate-limited jobs, and whether hidden or sensitive attributes leak through serialization or `toArray()`.
+5. If the API uses Sanctum or Passport, review token ability checks, stateful vs stateless assumptions, CSRF/session crossover risks, and revocation or rotation handling. If it handles webhooks, explicitly review signature verification and idempotency.
+6. Return findings under `Critical issues`, `Hardening improvements`, and `Tests to add`. Point each recommendation to the Laravel file or layer where the fix belongs, and prefer concrete changes such as `FormRequest`, policy, middleware, resource, cast, or hidden-attribute updates.
+7. Keep the answer practical and prioritized. Do not give generic API security advice that is not tied to the actual Laravel implementation.
 
 ## Examples
 
 Prompt 1:
 
 ```text
-Use api-hardening-patterns on our public Laravel API. Focus on validation, authorization, throttling, and overexposed resources.
+Use api-hardening-patterns on our public Laravel API. Focus on validation, authorization, throttling, and resource/data exposure.
 ```
 
 Prompt 2:
 
 ```text
-Review these Sanctum-protected endpoints for abuse resistance and safer error handling. Suggest concrete middleware or request-class changes.
+Review these Sanctum-protected endpoints for abuse resistance and safer error handling. Suggest concrete Laravel fixes, not just generic advice.
 ```
 
 JSON:
@@ -57,11 +57,12 @@ JSON:
     "auth": "sanctum",
     "exposure": "public",
     "focus": ["validation", "authorization", "rate_limiting", "error_contracts"],
-    "files": ["routes/api.php", "app/Http/Controllers/Api", "app/Http/Requests"]
+    "files": ["routes/api.php", "app/Http/Controllers/Api", "app/Http/Requests"],
+    "concerns": ["resource_exposure", "pagination_limits", "token_abilities"]
   }
 }
 ```
 
 ## Smoke test
 
-Run the skill on a Laravel API controller with inline validation, missing policy checks, unsafe resource serialization, and unlimited pagination. Verify that the response suggests `FormRequest`, policy, middleware, and resource-layer fixes instead of only generic security advice.
+Run the skill on a Laravel API controller with inline validation, missing policy checks, unsafe resource serialization, and unlimited pagination. Verify that the response returns concrete Laravel fixes such as `FormRequest`, policy, middleware, resource, or model-visibility changes instead of generic security advice.
