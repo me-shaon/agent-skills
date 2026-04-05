@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "deployment-readiness",
+    "name": "Deployment Readiness",
+    "path": "skills/deployment-readiness/SKILL.md"
+  },
+  {
+    "slug": "migration-index-reviewer",
+    "name": "Migration Index Reviewer",
+    "path": "skills/migration-index-reviewer/SKILL.md"
+  },
+  {
+    "slug": "api-hardening-patterns",
+    "name": "API Hardening Patterns",
+    "path": "skills/api-hardening-patterns/SKILL.md"
+  },
+  {
+    "slug": "upgrade-assistant",
+    "name": "Upgrade Assistant",
+    "path": "skills/upgrade-assistant/SKILL.md"
+  },
+  {
+    "slug": "resilient-check",
+    "name": "Resilient Check",
+    "path": "skills/resilient-check/SKILL.md"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "name": "laravel-boost-skills-skeleton",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Starter repository for Laravel Boost skills",
+  "scripts": {
+    "lint:md": "markdownlint-cli README.md \"skills/**/*.md\""
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.41.0"
+  }
+}
