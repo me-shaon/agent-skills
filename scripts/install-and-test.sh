@@ -9,6 +9,7 @@ SKILLS=(
   "api-hardening-patterns"
   "upgrade-assistant"
   "resilient-check"
+  "frontend-performance-review"
 )
 
 echo "Install commands:"

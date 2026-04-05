@@ -23,5 +23,10 @@
     "slug": "resilient-check",
     "name": "Resilient Check",
     "path": "skills/resilient-check/SKILL.md"
+  },
+  {
+    "slug": "frontend-performance-review",
+    "name": "Frontend Performance Review",
+    "path": "skills/frontend-performance-review/SKILL.md"
   }
 ]
