@@ -10,6 +10,8 @@ compatible_agents:
   - laravel/boost
 ---
 
+# Migration Index Reviewer
+
 ## When to use
 
 Use this skill when reviewing Laravel migrations, schema changes, slow-query fixes, or pull requests that introduce new tables, foreign keys, filters, sorting paths, or reporting endpoints. It is especially useful before merging migrations that will run on large production tables.

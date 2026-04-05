@@ -10,6 +10,8 @@ compatible_agents:
   - laravel/boost
 ---
 
+# Upgrade Assistant
+
 ## When to use
 
 Use this skill when preparing for or actively executing a Laravel framework, first-party package, PHP runtime, or ecosystem upgrade and you want a staged plan with risk awareness. It is most valuable when the app has custom authentication, queues, broadcasting, Horizon, Octane, Livewire, Inertia, Filament, or a large test suite.

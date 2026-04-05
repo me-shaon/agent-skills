@@ -10,6 +10,8 @@ compatible_agents:
   - laravel/boost
 ---
 
+# API Hardening Patterns
+
 ## When to use
 
 Use this skill when building or reviewing Laravel APIs that need stronger security, safer defaults, more predictable errors, and better protection against abuse or accidental misuse. Prefer it for public APIs, partner integrations, mobile backends, webhook endpoints, or any route group under `routes/api.php`.

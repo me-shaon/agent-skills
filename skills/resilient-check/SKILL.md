@@ -10,6 +10,8 @@ compatible_agents:
   - laravel/boost
 ---
 
+# Resilient Check
+
 ## When to use
 
 Use this skill for Laravel jobs, integrations, webhooks, scheduled tasks, listeners, notifications, or user-facing flows that must stay reliable when dependencies are slow, unavailable, or inconsistent. Prefer it when queues, Redis, Horizon, external APIs, or payment/provider callbacks are involved.

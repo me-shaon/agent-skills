@@ -10,6 +10,8 @@ compatible_agents:
   - laravel/boost
 ---
 
+# Deployment Readiness
+
 ## When to use
 
 Use this skill before a release, during a production readiness review, or when a team wants a Laravel-specific checklist of deployment blockers and follow-up actions. Prefer it when the app uses queues, Horizon, the scheduler, Redis, Octane, S3, Vapor, Forge, Docker, or any non-trivial CI/CD path.
